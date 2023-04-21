@@ -28,7 +28,7 @@
     <div id="hello-vue">
         {{ message }}
         <ul>
-            <li v-for="item in newList" :key="item.name">{{ item.name }}</li>
+            <li v-for="item in newList" :key="item.title"><a :href="item.url">{{ item.title }}</a></li>
         </ul>
         <button @click="test">test</button>
     </div>
@@ -53,7 +53,7 @@
                 console.log('onload')
                 (async () => {
                     console.log('2222')
-                    let res = await fetch('https://tenapi.cn/v2/weibohot')
+                    let res = await fetch('https://api.vvhan.com/api/hotlist?type=history')
                     let result = await res.json();
                     this.newList = result.data
                     // for (let item of result.data) {
@@ -66,7 +66,7 @@
             methods: {
                 async test() {
                     console.log('test')
-                    let res = await fetch('https://tenapi.cn/v2/weibohot')
+                    let res = await fetch('https://api.vvhan.com/api/hotlist?type=history')
                     let result = await res.json();
                     this.newList = result.data
                 }
