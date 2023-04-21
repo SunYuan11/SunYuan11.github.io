@@ -17,5 +17,16 @@
 </head>
 <body>
     <section class="page-title">我的个人主页</section>
+    <script>
+        (async () => {
+            let res = await fetch('https://tenapi.cn/v2/weibohot')
+            let result = await res.json();
+            for (let item of result.data) {
+                let div = document.createElement('div')
+                div.innerHTML = item.name
+                document.body.appendChild(div)
+            }
+        })()
+    </script>
 </body>
 </html>
